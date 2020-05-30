@@ -41,11 +41,6 @@
 #define NUMBER_OF_DIGITS 6
 #define STARWARS "t112v127l12<dddg2>d2c<ba>g2d4c<ba>g2d4cc-c<a2d6dg2>d2c<ba>g2d4c<ba>g2d4cc-c<a2"
 
-#define SUBSCRIBER_INTERVAL 30000
-#define NTP_LOOP_INTERVAL 60000
-#define DISP_LOOP_INTERVAL 500
-
-#define MAX_BRIGHTNESS 80
 #define MAX_DIGITS 6
 
 #ifdef DEBUG
@@ -150,7 +145,7 @@ void debugPrintSubs() {
 
 void displayText(String tt) {
   matrix.setTextWrap(false);
-  matrix.setBrightness(40);
+  matrix.setBrightness(30);
   matrix.fillScreen(0);
   matrix.setTextColor(colors[0]);
   matrix.setCursor(0, 0);
@@ -175,9 +170,17 @@ void displayNeo(int subs, int variance ) {
     matrix.print(res);
 
     // Show arrow
-    char arrow = (variance <= 0) ? 0x1F : 0x1E;
-    if (variance > 0) matrix.setTextColor(colors[1]);
-    else matrix.setTextColor(colors[0]);
+    // https://www.systutorials.com/ascii-table-and-ascii-code/
+    char arrow = 0x3D; // equal sign
+    if (variance > 0) {
+      arrow = 0x1E;
+      matrix.setTextColor(colors[1]);
+    } else if (variance < 0) {
+      arrow = 0x1F;
+      matrix.setTextColor(colors[0]);
+    } else {
+      matrix.setTextColor(colors[2]);
+    }
     matrix.setCursor(36, 0);
     matrix.print(arrow);
 
