@@ -1,0 +1,19 @@
+#ifndef __CONFIG_H
+  #define __CONFIG_H
+
+  // Development settings
+  #define DEBUG
+  #define SERIAL_BAUD     115200
+
+  // WiFi settings
+  #define WIFI_SSID       "YOUR_SSID"
+  #define WIFI_PASSWORD   "YOUR_WIFI_PASSWORD"
+  #define CONNECT_TIMEOUT 15
+
+  // YouToube settings
+  // Get yours from https://console.developers.google.com/apis/credentials
+  // Generate a key, no application restrictions but restrict it to "YouTube Data API v3"
+  #define API_KEY         ""
+  #define CHANNEL_ID      "UC0V3JeQJnCH4PyPQmfrfCdg" # oXiVanisher :P
+
+#endif
