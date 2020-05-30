@@ -16,4 +16,12 @@
   #define API_KEY         ""
   #define CHANNEL_ID      "UC0V3JeQJnCH4PyPQmfrfCdg" # oXiVanisher :P
 
+  // loop timeings
+  #define SUBSCRIBER_INTERVAL 30000
+  #define NTP_LOOP_INTERVAL 60000
+  #define DISP_LOOP_INTERVAL 500
+
+  // light sensor settings
+  #define MAX_BRIGHTNESS 80
+
 #endif
