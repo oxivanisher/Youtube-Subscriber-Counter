@@ -171,7 +171,7 @@ void displayNeo(int subs, int variance ) {
 
     // Show arrow
     // https://www.systutorials.com/ascii-table-and-ascii-code/
-    char arrow = 0x3D; // equal sign
+    char arrow = 0x20; // space (equal sign was not working optically)
     if (variance > 0) {
       arrow = 0x1E;
       matrix.setTextColor(colors[1]);
